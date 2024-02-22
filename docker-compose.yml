@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   op-geth: # this is Optimism's geth client
+    pull_policy: always
     build:
       context: .
       dockerfile: op-geth.Dockerfile
@@ -19,6 +20,7 @@ services:
       #- ./geth-data/:/data # enable to have persistency between restarts
       - ./networks/${CONDUIT_NETWORK:?set network}/genesis.json:/genesis.json
   op-node:
+    pull_policy: always
     build:
       context: .
       dockerfile: op-node.Dockerfile

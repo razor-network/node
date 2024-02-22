@@ -41,7 +41,7 @@ if [ "${CHAIN_ID}" = "919" ]; then
 fi
 
 if [ "${CHAIN_ID}" = "34443" ]; then
-	ADDITIONAL_ARGS="$ADDITIONAL_ARGS --rollup.superchain-upgrades --op-network mode-mainnet --rollup.halt=major"
+	ADDITIONAL_ARGS="$ADDITIONAL_ARGS --override.canyon=1704992401 --rollup.halt=major"
 fi
 
 if [ "${CHAIN_ID}" = "999999999" ]; then
