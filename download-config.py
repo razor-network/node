@@ -67,7 +67,7 @@ except Exception as e:
     exit(1)
 
 try:
-    env_file = ENV_TEMPLATE.format(rpc_url=f'https://rpc-{args.slug}.{CONDUIT_RPC_SUFFIX}', bootnodes=bootnodes, staticPeers=staticPeers)
+    env_file = ENV_TEMPLATE.format(rpc_url=f'https://rpc-razor-base-l3-5jqknrb11y.t.conduit.xyz', bootnodes=bootnodes, staticPeers=staticPeers)
     with open(slug_dir / '.env', 'w') as f:
         f.write(env_file)
 except Exception as e:

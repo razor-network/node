@@ -4,7 +4,7 @@ WORKDIR /app
 
 ENV REPO=https://github.com/celestiaorg/optimism.git
 # for verification:
-ENV COMMIT=v1.1.0-OP_op-batcher/v1.4.2-CN_v0.12.4
+ENV COMMIT=v1.2.0-OP_v1.7.0-CN_v0.12.4
 
 RUN git clone $REPO . --branch $COMMIT
 
