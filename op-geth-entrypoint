@@ -4,7 +4,7 @@ set -eu
 VERBOSITY=${GETH_VERBOSITY:-3}
 GETH_DATA_DIR=/data
 GETH_CHAINDATA_DIR="$GETH_DATA_DIR/geth/chaindata"
-OP_GETH_GENESIS_FILE_PATH="${OP_GETH_GENESIS_FILE_PATH:-/genesis.json}"
+OP_GETH_GENESIS_FILE_PATH="./genesis.json"
 CHAIN_ID=$(jq -r .config.chainId < "$OP_GETH_GENESIS_FILE_PATH")
 RPC_PORT="${RPC_PORT:-8545}"
 WS_PORT="${WS_PORT:-8546}"
@@ -81,12 +81,12 @@ exec geth \
 	--metrics \
 	--metrics.addr=0.0.0.0 \
 	--metrics.port="$METRICS_PORT" \
-	--syncmode=full \
-	--gcmode=archive \
+	--syncmode=snap \
+	--gcmode=full \
 	--nodiscover \
 	--maxpeers=100 \
 	--nat=extip:$HOST_IP \
 	--networkid="$CHAIN_ID" \
-	--rollup.sequencerhttp="$OP_GETH_SEQUENCER_HTTP" \
+	--rollup.sequencerhttp="https://rpc-razor-base-l3-5jqknrb11y.t.conduit.xyz" \
 	--port="$P2P_PORT" \
 	$ADDITIONAL_ARGS # intentionally unquoted
